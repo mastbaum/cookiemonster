@@ -5,7 +5,7 @@ This is a simplified demo of issues with browser cookies and client-side renderi
 To install:
 
     $ kanso push cookiemonster
-    $ python push_test_docs.py
+    $ python push_test_docs.py [couchdb url] cookiemonster
 
 To replicate issue:
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+  <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    <title>{title}</title> 
+    <script language="javascript">
+<!--
+function setCookie(elementId) {
+    var c_name = elementId;
+    var exdays = 100;
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var value = document.getElementById(elementId).checked;
+    var c_value = escape(value) + ((exdays == null) ? "" : "; expires = " + exdate.toUTCString());
+    document.cookie = c_name + "=" + c_value;
+}
+
+function setCheckboxes() {
+    var i,x,y,ARRcookies = document.cookie.split(";");
+    for (i=0; i<ARRcookies.length; i++) {
+        x = ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+        if (y == "true")
+            y = true;
+        else
+            y = false;
+        x = x.replace(/^\s+|\s+$/g,"");
+        if (x == 'penn')
+            document.getElementById('penn').checked = y;
+        if (x == 'underground')
+            document.getElementById('underground').checked = y;
+    }
+}
+//-->
+   </script>
+  </head> 
+  <body onLoad="setCheckboxes();"> 
+    <div>
+      <form>
+        <span>Locations:&nbsp;</span>
+        <input type="checkbox" id=underground name="underground" onClick="setCookie('underground');window.location.reload()"/>Underground&nbsp;
+        <input type="checkbox" id=penn name="penn" onClick="setCookie('penn');window.location.reload()"/>Penn&nbsp;
+      </form>
+    </div>
+    <div id="content">
+      {content|s}
+    </div>
+    <script src="{baseURL}/static/js/jquery-1.5.2.min.js"></script>
+    <script src="{baseURL}/static/js/json2.js"></script>
+    <script src="{baseURL}/kanso.js"></script>
+  </body>
+</html>

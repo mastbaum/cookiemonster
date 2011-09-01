@@ -1,0 +1,18 @@
+<h1>All of the Things</h1>
+{?rows}
+ <table border>
+  <tr>
+   <th>ID</th>
+   <th>Location</th>
+  </tr>
+  {#rows}
+   <tr>
+    <td>{id}</td>
+    <td>{value.loc}</td>
+   </tr>
+  {/rows}
+ </table>
+{:else}
+ <h1>No tests found</h1>
+{/rows}
+
